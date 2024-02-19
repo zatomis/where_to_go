@@ -10,21 +10,19 @@ def show_main(request):
     places = Place.objects.prefetch_related('images').all()
     for place in places:
         main_url = request.build_absolute_uri()
-        print(main_url)
         path_url = reverse("places", args=(place.pk,))
-        print(path_url)
         pictures = [pic.image.url for pic in place.images.all()]
 
-        place_details = {
-            "title": place.title,
-            "description_short": place.short_description,
-            "description_long": place.long_description,
-            "coordinates": {
-                "lng": place.lon,
-                "lat": place.lat,
-            },
-            "imgs": pictures,
-        }
+        # place_details = {
+        #     "title": place.title,
+        #     "description_short": place.short_description,
+        #     "description_long": place.long_description,
+        #     "coordinates": {
+        #         "lng": place.lon,
+        #         "lat": place.lat,
+        #     },
+        #     "imgs": pictures,
+        # }
 
         place_geodata = {
             "type": "Feature",
