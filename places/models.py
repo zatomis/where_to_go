@@ -1,15 +1,14 @@
 from uuid import uuid4
 from django.db import models
 from django.utils.text import slugify
-# from tinymce.models import HTMLField
+from tinymce.models import HTMLField
 
 
 class Place(models.Model):
     title = models.CharField(blank=False, max_length=100, verbose_name='Название места', null=False, default='Локация',
                              unique=True)
     short_description = models.TextField(verbose_name='Описание места - кратко', blank=True, null=False)
-    # long_description = HTMLField(verbose_name='Подробное описание места', blank=True, null=False)
-    long_description = models.TextField(verbose_name='Подробное описание места', blank=True, null=False)
+    long_description = HTMLField(verbose_name='Подробное описание места', blank=True, null=False)
     lon = models.FloatField(blank=False, verbose_name='долгота')
     lat = models.FloatField(blank=False, verbose_name='широта')
     slug = models.SlugField(max_length=150, verbose_name='Уникальный идентификатор локации', blank=True)

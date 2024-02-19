@@ -12,6 +12,7 @@ from django.urls import include, path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', show_main, name='main'),
+    path('tinymce/', include('tinymce.urls')),
     path('places/<int:place_id>/', get_place_details, name='places'),
 ]
 
