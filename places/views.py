@@ -12,18 +12,6 @@ def show_main(request):
         main_url = request.build_absolute_uri()
         path_url = reverse("places", args=(place.pk,))
         pictures = [pic.image.url for pic in place.images.all()]
-
-        # place_details = {
-        #     "title": place.title,
-        #     "description_short": place.short_description,
-        #     "description_long": place.long_description,
-        #     "coordinates": {
-        #         "lng": place.lon,
-        #         "lat": place.lat,
-        #     },
-        #     "imgs": pictures,
-        # }
-
         place_geodata = {
             "type": "Feature",
             "geometry": {
@@ -37,7 +25,6 @@ def show_main(request):
             }
         }
         features.append(place_geodata)
-
     places_geojson = {
       "type": "FeatureCollection",
       "features": features,
