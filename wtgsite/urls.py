@@ -1,11 +1,13 @@
 
-from places.views import show_main, get_place_details
-# from wtgsite import settings
-
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
+
+from places.views import get_place_details, show_main
+
+# from wtgsite import settings
+
 
 
 
