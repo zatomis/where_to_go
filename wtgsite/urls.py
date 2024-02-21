@@ -6,10 +6,6 @@ from django.urls import include, path
 
 from places.views import get_place_details, show_main
 
-# from wtgsite import settings
-
-
-
 
 urlpatterns = [
     path('admin/', admin.site.urls),
